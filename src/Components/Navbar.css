@@ -18,10 +18,10 @@
 }
 
 .nav__avatar {
-  position: fixed;
-  right: 20px;
-  width: 30px;
   object-fit: contain;
+  position: fixed;
+  right: 50px;
+  width: 30px;
 }
 
 .nav__black {

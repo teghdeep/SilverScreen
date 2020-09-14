@@ -2,9 +2,8 @@ import React from "react";
 import "./App.css";
 import Row from "./Row";
 import requests from "./requests";
-import Banner from "./Banner";
-import Navbar from "./Navbar";
-// Pagal Pandhi
+import Banner from "./Components/Banner";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
