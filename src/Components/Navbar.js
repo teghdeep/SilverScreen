@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import "./Navbar.css";
-import { Nav, NavDropdown } from "react-bootstrap";
+import firebase from "../firebase/base";
 
 const StyledMenu = withStyles({
   paper: {
@@ -42,6 +42,11 @@ const StyledMenuItem = withStyles((theme) => ({
 function Navbar() {
   const [show, handleShow] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    setUser(firebase.getCurrentUsername());
+  });
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -69,7 +74,18 @@ function Navbar() {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/170px-Netflix_2015_logo.svg.png"
         alt="Netflix Logo"
       />
-      <div style={{ position: "fixed", right: "50px", width: "30px" }}>
+      <div
+        style={{
+          position: "fixed",
+          right: "100px",
+          width: "150px",
+          color: "red",
+          fontWeight: "bold",
+        }}
+      >
+        <p>{user != "" ? user : ""}</p>
+      </div>
+      <div style={{ position: "fixed", right: "50px", width: "50px" }}>
         <Button
           aria-controls="simple-menu"
           aria-haspopup="true"

@@ -1,32 +1,68 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import Home from "./Components/Home";
+// import Volunteer from "./Components/Volunteer";
+import Login from "./Components/Login";
+// import List from "./Components/List";
+// import HelpedList from "./Components/HelpedList";
+// import Profile from "./Components/Profile";
+// import Locate from "./Components/Locate";
+// import NotFound from "./Components/NotFound";
+// import Nearme from "./Components/Nearme";
 import "./App.css";
-import Row from "./Row";
-import requests from "./requests";
-import Banner from "./Components/Banner";
-import Navbar from "./Components/Navbar";
+import SignUp from "./Components/SignUp";
+import firebase from "./firebase/base";
 
 function App() {
+  useEffect(() => {
+    firebase.isInitialized();
+  });
   return (
-    <div className="app">
-      {/* nav bar*/}
-      <Navbar />
+    // <div className="app">
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
 
-      {/* banner*/}
-      <Banner />
+        <Route path="/login">
+          <Login />
+        </Route>
 
-      <Row
-        tittle="NETFLIX ORIGINALS"
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow={true}
-      />
-      <Row tittle="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row tittle="Top Rated" fetchUrl={requests.fetchTopRated} />
-      <Row tittle="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Row tittle="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row tittle="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Row tittle="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
-      {/* <Row tittle="Documentaries" fetchUrl={requests.fetchDocumentaries} /> */}
-    </div>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+
+        {/* 
+        
+
+        <Route path="/profile">
+          <Profile />
+        </Route>
+
+        <Route path="/locate">
+          <Locate />
+        </Route>
+
+        <Route path="/nearme">
+          <Nearme />
+        </Route>
+
+        <Route path="/list">
+          <List />
+        </Route>
+
+        <Route path="/helpedlist">
+          <HelpedList />
+        </Route>
+
+        <Route path="*">
+          <NotFound />
+        </Route> */}
+      </Switch>
+    </BrowserRouter>
+    // {/* </div> */}
   );
 }
 
