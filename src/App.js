@@ -40,9 +40,6 @@ function App() {
         </Route>
 
         {/* 
-        
-
-        
 
         <Route path="/locate">
           <Locate />

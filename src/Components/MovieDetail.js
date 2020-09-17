@@ -82,6 +82,7 @@ export default function M() {
         <h3>
           <FaFlag /> Rating
         </h3>
+        <p>{movie.vote_average}</p>
 
         {console.log(cast)}
         {cast !== null &&
@@ -89,7 +90,11 @@ export default function M() {
         cast.cast !== null &&
         cast.cast !== undefined ? (
           (console.log(cast.cast[0].name),
-          (<p color="white">{cast.cast[0].name}</p>))
+          (
+            <p>
+              {cast.cast[0].name} {cast.cast[1].name} {cast.cast[2].name}
+            </p>
+          ))
         ) : (
           // cast.cast.map(
           //   (cast) => <h1 color="white">{cast[0].name}</h1>,
@@ -97,9 +102,7 @@ export default function M() {
           // ))
           <div></div>
         )}
-        <p>{movie.vote_average}</p>
       </div>
-      <br></br>
 
       {/* {cast !== null &&
       cast !== undefined &&

@@ -25,11 +25,31 @@ function App({ history }) {
         fetchUrl={requests.fetchTrending}
         history={history}
       />
-      <Row tittle="Top Rated" fetchUrl={requests.fetchTopRated} />
-      <Row tittle="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Row tittle="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row tittle="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Row tittle="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
+      <Row
+        tittle="Top Rated"
+        fetchUrl={requests.fetchTopRated}
+        history={history}
+      />
+      <Row
+        tittle="Action Movies"
+        fetchUrl={requests.fetchActionMovies}
+        history={history}
+      />
+      <Row
+        tittle="Comedy Movies"
+        fetchUrl={requests.fetchComedyMovies}
+        history={history}
+      />
+      <Row
+        tittle="Horror Movies"
+        fetchUrl={requests.fetchHorrorMovies}
+        history={history}
+      />
+      <Row
+        tittle="Romance Movies"
+        fetchUrl={requests.fetchRomanceMovies}
+        history={history}
+      />
       {/* <Row tittle="Documentaries" fetchUrl={requests.fetchDocumentaries} /> */}
     </div>
   );
