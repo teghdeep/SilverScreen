@@ -3,10 +3,12 @@ import axios from "./axios";
 import "./Row.css";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
+import { Link, Redirect } from "react-router-dom";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 const base_url = " https://image.tmdb.org/t/p/original/";
 
-function Row({ tittle, fetchUrl, isLargeRow }) {
+function Row({ tittle, fetchUrl, isLargeRow, history }) {
   const [movies, setMovies] = useState([]); // empty movie array
   const [trailerUrl, setTrailerUrl] = useState("");
 
@@ -29,17 +31,17 @@ function Row({ tittle, fetchUrl, isLargeRow }) {
 
   const handleClick = (movie) => {
     console.log(movie);
-    if (trailerUrl) {
-      console.log(movie);
-      setTrailerUrl("");
-    } else {
-      movieTrailer(movie?.name || "")
-        .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v"));
-        })
-        .catch((error) => console.log(error));
-    }
+    // if (trailerUrl) {
+    //   console.log(movie);
+    //   setTrailerUrl("");
+    // } else {
+    //   movieTrailer(movie?.name || "")
+    //     .then((url) => {
+    //       const urlParams = new URLSearchParams(new URL(url).search);
+    //       setTrailerUrl(urlParams.get("v"));
+    //     })
+    //     .catch((error) => console.log(error));
+    // }
   };
 
   return (
@@ -51,7 +53,7 @@ function Row({ tittle, fetchUrl, isLargeRow }) {
         {movies.map((movie) => (
           <img
             key={movie.id}
-            onClick={() => handleClick(movie)}
+            onClick={() => history.push(`/moviedetail/${movie.id}`)}
             className={`row__poster ${isLargeRow && "row__posterLarge"}`}
             src={`${base_url}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
@@ -60,7 +62,7 @@ function Row({ tittle, fetchUrl, isLargeRow }) {
           />
         ))}
       </div>
-      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
+      {/* {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />} */}
 
       {/* container -> poster*/}
     </div>

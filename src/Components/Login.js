@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({ history }) {
+function SignIn({ history }) {
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -83,6 +83,7 @@ export default function SignIn({ history }) {
   async function onLogin() {
     try {
       await firebase.login(email, password);
+      alert("Login Done");
       history.replace("/");
     } catch (error) {
       alert(error.message);
@@ -195,3 +196,5 @@ export default function SignIn({ history }) {
     // </div>
   );
 }
+
+export default withRouter(SignIn);

@@ -10,7 +10,7 @@ function App({ history }) {
   return (
     <div className="app">
       {/* nav bar*/}
-      <Navbar />
+      <Navbar history={history} />
 
       {/* banner*/}
       <Banner />
@@ -20,7 +20,11 @@ function App({ history }) {
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow={true}
       />
-      <Row tittle="Trending Now" fetchUrl={requests.fetchTrending} />
+      <Row
+        tittle="Trending Now"
+        fetchUrl={requests.fetchTrending}
+        history={history}
+      />
       <Row tittle="Top Rated" fetchUrl={requests.fetchTopRated} />
       <Row tittle="Action Movies" fetchUrl={requests.fetchActionMovies} />
       <Row tittle="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />

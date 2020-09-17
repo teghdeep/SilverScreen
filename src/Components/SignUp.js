@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp({ history }) {
+function SignUp({ history }) {
   const classes = useStyles();
 
   const [email, setEmail] = useState("");
@@ -77,6 +77,8 @@ export default function SignUp({ history }) {
   const onRegister = async () => {
     try {
       await firebase.register(name, email, password);
+      alert("SignUp Done");
+      history.replace("/login");
     } catch (error) {
       alert(error.message);
     }
@@ -185,7 +187,7 @@ export default function SignUp({ history }) {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.submit}
                 onClick={onRegister}
               >
@@ -204,7 +206,13 @@ export default function SignUp({ history }) {
             <Copyright />
           </Box>
         </Container>
+        <br />
+        <br />
+        <br />
+        <br />
       </Grid>
     </Grid>
   );
 }
+
+export default withRouter(SignUp);

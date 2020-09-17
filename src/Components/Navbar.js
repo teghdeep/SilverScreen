@@ -7,6 +7,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import "./Navbar.css";
 import firebase from "../firebase/base";
+import { black, red } from "@material-ui/core/colors";
 
 const StyledMenu = withStyles({
   paper: {
@@ -39,7 +40,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-function Navbar() {
+function Navbar(props) {
   const [show, handleShow] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [user, setUser] = useState("");
@@ -63,7 +64,7 @@ function Navbar() {
       } else handleShow(show);
     });
     return () => {
-      window.removeEventListener("scroll");
+      //window.removeEventListener("scroll");
     };
   }, []);
 
@@ -103,13 +104,17 @@ function Navbar() {
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
-          color="black"
         >
           <StyledMenuItem>
             {/* <ListItemIcon>
             <SendIcon fontSize="small" />
           </ListItemIcon> */}
-            <ListItemText primary="Login" />
+            <ListItemText
+              primary="Login"
+              onClick={() => {
+                props.history.replace("/login");
+              }}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
             {/* <ListItemIcon>
@@ -121,7 +126,12 @@ function Navbar() {
             {/* <ListItemIcon>
             <InboxIcon fontSize="small" />
           </ListItemIcon> */}
-            <ListItemText primary="SignUp" />
+            <ListItemText
+              primary="SignUp"
+              onClick={() => {
+                props.history.replace("/signup");
+              }}
+            />
           </StyledMenuItem>
           <StyledMenuItem>
             {/* <ListItemIcon>

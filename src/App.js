@@ -13,6 +13,7 @@ import Login from "./Components/Login";
 import "./App.css";
 import SignUp from "./Components/SignUp";
 import firebase from "./firebase/base";
+import MovieDetail from "./Components/MovieDetail";
 
 function App() {
   useEffect(() => {
@@ -34,12 +35,14 @@ function App() {
           <SignUp />
         </Route>
 
+        <Route path="/moviedetail/:movieid">
+          <MovieDetail />
+        </Route>
+
         {/* 
         
 
-        <Route path="/profile">
-          <Profile />
-        </Route>
+        
 
         <Route path="/locate">
           <Locate />
