@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaFlag } from "react-icons/fa";
-
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Card from 'react-bootstrap/Card';
-// import Image from 'react-bootstrap/Image';
-// import background from './background.jpg';
 import "./Details.css";
 import { useParams } from "react-router-dom";
 
@@ -20,7 +13,6 @@ export default function M() {
     `${params.movieid}` +
     "?api_key=98325a9d3ed3ec225e41ccc4d360c817";
   const castURL = `https://api.themoviedb.org/3/movie/${params.movieid}/credits?api_key=98325a9d3ed3ec225e41ccc4d360c817`;
-  //  const base_url = " https://image.tmdb.org/t/p/original/";
 
   useEffect(() => {
     async function fetchData() {

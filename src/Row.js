@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "./axios";
+import axios from "axios";
 import "./Row.css";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
@@ -13,11 +13,11 @@ function Row({ tittle, fetchUrl, isLargeRow, history }) {
   const [trailerUrl, setTrailerUrl] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const request = await axios.get(fetchUrl);
       setMovies(request.data.results);
       return request;
-    }
+    };
     fetchData();
   }, [fetchUrl]); // if [], run once when the row loads , and dont run again
 

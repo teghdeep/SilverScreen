@@ -78,6 +78,28 @@ function Navbar(props) {
       <div
         style={{
           position: "fixed",
+          left: "150px",
+          width: "150px",
+          color: "red",
+          fontWeight: "bold",
+        }}
+      >
+        <p onClick={() => props.history.replace("/movietab")}>Movies</p>
+      </div>
+      <div
+        style={{
+          position: "fixed",
+          left: "220px",
+          width: "150px",
+          color: "red",
+          fontWeight: "bold",
+        }}
+      >
+        <p onClick={() => props.history.replace("/seriestab")}>Series</p>
+      </div>
+      <div
+        style={{
+          position: "fixed",
           right: "100px",
           width: "150px",
           color: "red",

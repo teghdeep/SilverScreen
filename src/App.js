@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./Components/Home";
 // import Volunteer from "./Components/Volunteer";
 import Login from "./Components/Login";
+import MovieTab from "./Components/MovieTab";
+import SeriesTab from "./Components/SeriesTab";
+
 // import List from "./Components/List";
 // import HelpedList from "./Components/HelpedList";
 // import Profile from "./Components/Profile";
@@ -14,6 +17,7 @@ import "./App.css";
 import SignUp from "./Components/SignUp";
 import firebase from "./firebase/base";
 import MovieDetail from "./Components/MovieDetail";
+import SeriesDetail from "./Components/SeriesDetail";
 
 function App() {
   useEffect(() => {
@@ -38,16 +42,20 @@ function App() {
         <Route path="/moviedetail/:movieid">
           <MovieDetail />
         </Route>
+        <Route path="/seriesdetail/:seriesid">
+          <SeriesDetail />
+        </Route>
+        <Route path="/movietab">
+          <MovieTab />
+        </Route>
+
+        <Route path="/seriestab">
+          <SeriesTab />
+        </Route>
 
         {/* 
 
-        <Route path="/locate">
-          <Locate />
-        </Route>
-
-        <Route path="/nearme">
-          <Nearme />
-        </Route>
+        
 
         <Route path="/list">
           <List />

@@ -1,4 +1,5 @@
-* Split the screen in half */ .split {
+/* Split the screen in half */
+.split {
   height: 100%;
   width: 70%;
   position: fixed;
@@ -21,16 +22,17 @@
   background-color: black;
 }
 
-/* .centered {
+.centered {
   position: absolute;
   top: 80%;
   left: 35%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  /* text-align: center;
 } */
+}
 
 /* Style the image inside the centered container, if needed */
-/* .centered img {
-  width: 150px;
+.centered img {
+  width: 75px;
   border-radius: 40%;
-} */
+}
