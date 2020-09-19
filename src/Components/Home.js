@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Row from "../Row";
+import RowSeries from "../RowSeries";
 import requests from "../requests";
 import Banner from "./Banner";
 import Navbar from "./Navbar";
@@ -15,10 +16,11 @@ function App({ history }) {
       {/* banner*/}
       <Banner />
 
-      <Row
+      <RowSeries
         tittle="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow={true}
+        history={history}
       />
       <Row
         tittle="Trending Now"
