@@ -82,60 +82,6 @@ export default function M() {
   }
 
   return (
-    // <div className="main">
-    //   <div className="split left">
-    //     <img src={path}></img>
-    //   </div>
-
-    //   <div className="split right">
-    //     <br></br>
-    //     <br></br>
-    //     <h1> {movie.title}</h1>
-
-    //     <br></br>
-    //     <br></br>
-    //     <br></br>
-
-    //     <h3>
-    //       <FaFlag /> Overview
-    //     </h3>
-
-    //     <p>{movie.overview}</p>
-
-    //     <br></br>
-    //     <br></br>
-    //     <br></br>
-    //     <h3>
-    //       <FaFlag /> Release date
-    //     </h3>
-
-    //     <p>{movie.release_date}</p>
-    //     <br></br>
-    //     <br></br>
-    //     <br></br>
-    //     <h3>
-    //       <FaFlag /> Rating
-    //     </h3>
-    //     <p>{movie.vote_average}</p>
-
-    //     {console.log(cast)}
-    //     {cast !== null &&
-    //     cast !== undefined &&
-    //     cast.cast !== null &&
-    //     cast.cast !== undefined ? (
-    //       (console.log(cast.cast[0].name),
-    //       (
-    //         <p>
-    //           {cast.cast[0].name} {cast.cast[1].name} {cast.cast[2].name}
-    //         </p>
-    //       ))
-    //     ) : (
-
-    //       <div></div>
-    //     )}
-    //   </div>
-
-    // </div>
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>

@@ -18,6 +18,7 @@ import SignUp from "./Components/SignUp";
 import firebase from "./firebase/base";
 import MovieDetail from "./Components/MovieDetail";
 import SeriesDetail from "./Components/SeriesDetail";
+import Mylist from "./Components/Mylist";
 
 function App() {
   useEffect(() => {
@@ -53,13 +54,15 @@ function App() {
           <SeriesTab />
         </Route>
 
+        <Route path="/mylist">
+          <Mylist />
+        </Route>
+
         {/* 
 
         
 
-        <Route path="/list">
-          <List />
-        </Route>
+        
 
         <Route path="/helpedlist">
           <HelpedList />

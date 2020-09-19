@@ -41,33 +41,10 @@ class Firebase {
     });
   }
 
-  addUser(
-    name,
-    email,
-    address,
-    city,
-    state,
-    postalcode,
-    phone,
-    capacity,
-    lat,
-    long,
-    service,
-    description
-  ) {
+  addMovie(emailId, movie) {
     const data = {
-      name,
-      address,
-      email,
-      city,
-      state,
-      postalcode,
-      phone,
-      capacity,
-      lat,
-      long,
-      service,
-      description,
+      emailId,
+      movie,
       uid: new Date().getTime(),
     };
 
@@ -76,44 +53,23 @@ class Firebase {
       .doc(data.uid.toString())
       .set(data)
       .then(() => {
-        alert("Sucess : New User Added");
+        alert("Sucess : New Movie Added to Your List");
       });
   }
 
-  addCustomer(
-    name,
-    age,
-    email,
-    phone,
-    city,
-    state,
-    postalcode,
-    lat,
-    long,
-    complete,
-    helped
-  ) {
+  addSeries(emailId, series) {
     const data = {
-      name,
-      age,
-      email,
-      phone,
-      city,
-      state,
-      postalcode,
-      lat,
-      long,
-      complete,
-      helped,
+      emailId,
+      series,
       uid: new Date().getTime(),
     };
 
     this.db
-      .collection("customers")
+      .collection("userseries")
       .doc(data.uid.toString())
       .set(data)
       .then(() => {
-        alert("Sucess : New Customer Added");
+        alert("Sucess : New Series Added to Your List");
       });
   }
 

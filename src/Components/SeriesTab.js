@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "material-ui-search-bar";
 import axios from "axios";
 import "./Details.css";
@@ -21,6 +21,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Navbar from "./NavbarSearch";
 import { withRouter } from "react-router-dom";
+import firebase from "../firebase/base";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
   },
   root2: {
     backgroundColor: "black",
+    height: "100%",
+    width: "100%",
   },
   search: {
     marginTop: 70,
@@ -58,6 +61,8 @@ const useStyles = makeStyles((theme) => ({
 function App({ history }) {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
+  const [userMovie, setUserMovie] = useState([]);
+  const [fav, setfav] = useState(false);
   const classes = useStyles();
   //const fetchUrl = `https://api.themoviedb.org/3/search/tv?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=${search}`;
   const toSearch = async (search) => {
@@ -66,6 +71,19 @@ function App({ history }) {
     setMovies(request.data.results);
     return request;
   };
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      await firebase.db
+        .collection("users")
+        .where("emailId", "==", `${firebase.getCurrentUsername()}`)
+        .get()
+        .then((querySnapshot) => {
+          setUserMovie(querySnapshot.docs.map((doc) => doc.data()));
+        });
+    };
+    fetchdata();
+  });
 
   return (
     <div style={{ backgroundColor: "black" }}>
@@ -99,10 +117,22 @@ function App({ history }) {
                   />
                   <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
-                      <FavoriteIcon />
+                      <FavoriteIcon
+                        onClick={() => {
+                          firebase.addSeries(
+                            firebase.getCurrentUsername(),
+                            movie
+                          );
+                        }}
+                        color="secondary"
+                      />
                     </IconButton>
                     <IconButton aria-label="share">
-                      <ShareIcon />
+                      <ShareIcon
+                        onClick={() => {
+                          history.push(`/seriesdetail/${movie.id}`);
+                        }}
+                      />
                     </IconButton>
                   </CardActions>
                 </Card>
@@ -117,4 +147,4 @@ function App({ history }) {
   );
 }
 
-export default App;
+export default withRouter(App);

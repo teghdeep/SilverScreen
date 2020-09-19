@@ -159,7 +159,14 @@ function Navbar(props) {
             {/* <ListItemIcon>
             <InboxIcon fontSize="small" />
           </ListItemIcon> */}
-            <ListItemText primary="Logout" />
+            <ListItemText
+              primary="Logout"
+              onClick={() => {
+                firebase.logout();
+                alert("Logout Successful");
+                props.history.push("/");
+              }}
+            />
           </StyledMenuItem>
         </StyledMenu>
       </div>

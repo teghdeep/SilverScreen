@@ -100,6 +100,17 @@ function Navbar(props) {
       <div
         style={{
           position: "fixed",
+          left: "290px",
+          width: "150px",
+          color: "red",
+          fontWeight: "bold",
+        }}
+      >
+        <p onClick={() => props.history.replace("/mylist")}>My List</p>
+      </div>
+      <div
+        style={{
+          position: "fixed",
           right: "100px",
           width: "150px",
           color: "red",
@@ -159,7 +170,14 @@ function Navbar(props) {
             {/* <ListItemIcon>
             <InboxIcon fontSize="small" />
           </ListItemIcon> */}
-            <ListItemText primary="Logout" />
+            <ListItemText
+              primary="Logout"
+              onClick={() => {
+                firebase.logout();
+                alert("Logout Successful");
+                props.history.push("/");
+              }}
+            />
           </StyledMenuItem>
         </StyledMenu>
       </div>
